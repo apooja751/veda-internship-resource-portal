@@ -1,0 +1,157 @@
+
+{
+  "domains": [
+    {
+      "id": 1,
+      "name": "Cloud Computing",
+      "description": "Learn cloud infrastructure, AWS services, virtualization, storage and cloud deployment.",
+      "level": "Beginner",
+      "category": "Cloud"
+    },
+    {
+      "id": 2,
+      "name": "Web Development",
+      "description": "Explore frontend development, backend technologies and responsive website creation.",
+      "level": "Beginner",
+      "category": "Development"
+    },
+    {
+      "id": 3,
+      "name": "Artificial Intelligence",
+      "description": "Understand artificial intelligence, machine learning and intelligent applications.",
+      "level": "Intermediate",
+      "category": "AI"
+    },
+    {
+      "id": 4,
+      "name": "Data Science",
+      "description": "Learn data analysis, data visualization and data-driven problem solving.",
+      "level": "Intermediate",
+      "category": "Data"
+    },
+    {
+      "id": 5,
+      "name": "Cyber Security",
+      "description": "Explore network security, ethical security practices and system protection.",
+      "level": "Beginner",
+      "category": "Security"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Cloud Resource Portal",
+      "description": "Build a centralized portal for internship information, project details and learning resources.",
+      "technology": "HTML, CSS, JavaScript, JSON, AWS"
+    },
+    {
+      "id": 2,
+      "name": "Static Website Deployment",
+      "description": "Create and deploy a responsive static website using cloud storage and content delivery services.",
+      "technology": "HTML, CSS, JavaScript, Amazon S3, CloudFront"
+    },
+    {
+      "id": 3,
+      "name": "Serverless API",
+      "description": "Develop a serverless API endpoint for retrieving internship resource information.",
+      "technology": "AWS Lambda, API Gateway, Python"
+    }
+  ],
+  "resources": [
+    {
+      "id": 1,
+      "title": "AWS Documentation",
+      "description": "Official documentation for AWS cloud services, architecture and deployment.",
+      "category": "Cloud",
+      "url": "https://docs.aws.amazon.com/"
+    },
+    {
+      "id": 2,
+      "title": "Amazon S3 Documentation",
+      "description": "Learn cloud object storage, buckets, permissions and storage management.",
+      "category": "Cloud",
+      "url": "https://docs.aws.amazon.com/s3/"
+    },
+    {
+      "id": 3,
+      "title": "MDN Web Docs",
+      "description": "Learn HTML, CSS, JavaScript and modern web development.",
+      "category": "Development",
+      "url": "https://developer.mozilla.org/"
+    },
+    {
+      "id": 4,
+      "title": "Python Documentation",
+      "description": "Official Python programming language documentation and tutorials.",
+      "category": "Programming",
+      "url": "https://docs.python.org/3/"
+    },
+    {
+      "id": 5,
+      "title": "GitHub Documentation",
+      "description": "Learn repositories, Git commands, collaboration and version control.",
+      "category": "Tools",
+      "url": "https://docs.github.com/"
+    },
+    {
+      "id": 6,
+      "title": "AWS Lambda Documentation",
+      "description": "Learn how to build and run serverless functions using AWS Lambda.",
+      "category": "Cloud",
+      "url": "https://docs.aws.amazon.com/lambda/"
+    }
+  ],
+  "guidelines": [
+    {
+      "id": 1,
+      "title": "Internship Participation",
+      "description": "Follow the internship schedule, understand assigned tasks and complete activities within the specified timelines."
+    },
+    {
+      "id": 2,
+      "title": "Task Submission",
+      "description": "Verify your work before submission and follow the official internship submission instructions."
+    },
+    {
+      "id": 3,
+      "title": "GitHub Repository",
+      "description": "Maintain organized repositories with meaningful file names, clear commit messages and updated README documentation."
+    },
+    {
+      "id": 4,
+      "title": "Project Documentation",
+      "description": "Document project objectives, technologies, implementation steps, testing results and deployment details."
+    },
+    {
+      "id": 5,
+      "title": "Security Practices",
+      "description": "Never publish passwords, API keys, AWS credentials or confidential information in public repositories."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the purpose of this internship resource portal?",
+      "answer": "The portal provides a centralized platform for accessing internship domains, project information, FAQs, guidelines and learning resources."
+    },
+    {
+      "question": "Which technologies are used to build this portal?",
+      "answer": "The frontend uses HTML, CSS, JavaScript and JSON. AWS services will be used for cloud hosting, object storage and serverless integration."
+    },
+    {
+      "question": "Can interns access learning resources?",
+      "answer": "Yes. The resources section provides links to technical documentation, tutorials and official learning websites."
+    },
+    {
+      "question": "Is the portal accessible on mobile devices?",
+      "answer": "Yes. The website uses responsive CSS to support desktop, tablet and mobile screens."
+    },
+    {
+      "question": "How can I find a particular project or resource?",
+      "answer": "Use the portal search bar and category filter to find internship domains, projects and learning materials."
+    },
+    {
+      "question": "Does this portal replace the official internship dashboard?",
+      "answer": "No. This is an independent learning prototype and does not replace any existing Veda Technology system."
+    }
+  ]
+}
