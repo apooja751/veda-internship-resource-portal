@@ -18,23 +18,70 @@ A web-based internship resource portal designed to organize internship informati
 - CSS3
 - JavaScript
 - JSON
-- Python HTTP Server (for local testing)
+- Git and GitHub
+- Cloudflare Pages
+- Cloudflare Pages Functions
+
+## Cloud Deployment
+
+The website is hosted using Cloudflare Pages.
+
+- Hosting platform: Cloudflare Pages
+- Source repository: GitHub
+- Deployment branch: main
+- Website URL: https://veda-internship-resource-portal.pages.dev/
+- HTTPS: Enabled through the Cloudflare Pages domain
+
+GitHub integration enables automatic deployment when changes are pushed to the main branch.
+
+## API Endpoint
+
+The project includes a Cloudflare Pages Function API.
+
+API URL:
+
+https://veda-internship-resource-portal.pages.dev/api/resources
+
+The API returns five sample learning resources in JSON format.
+
+Example response:
+
+```json
+{
+  "success": true,
+  "total": 5,
+  "resources": []
+}
+```
+
+## Project Architecture
+
+The architecture diagram is available in [ARCHITECTURE.md](ARCHITECTURE.md).
+
+Main workflow:
+
+1. Users access the website through Cloudflare Pages.
+2. The frontend is built using HTML, CSS and JavaScript.
+3. JavaScript requests resource information from the Pages Function API.
+4. The API returns resource data in JSON format.
+5. Existing local JSON data acts as a fallback if the API is unavailable.
+
 
 ## Project Structure
 
 ```text
 veda-internship-resource-portal/
-│
+├── assets/
+├── data/
+│   └── resources.json
+├── functions/
+│   └── api/
+│       └── resources.js
+├── ARCHITECTURE.md
 ├── index.html
 ├── style.css
 ├── script.js
-├── README.md
-│
-├── data/
-│   └── resources.json
-│
-└── assets/
-    └── 01-portal-homepage.png
+└── README.md
 ```
 
 ## Run Locally
@@ -54,13 +101,23 @@ python -m http.server 5500
 http://localhost:5500/
 ```
 
+## Storage and DNS Notes
+
+- Project screenshots and static resources are maintained in the GitHub repository.
+- Cloudflare R2 has not been configured because account activation requested payment details.
+- The project uses the free Cloudflare Pages domain.
+- No custom domain has been purchased or configured.
+
+## Rollback and Deployment Evidence
+
+Cloudflare Pages deployment history provides access to previous deployments. Screenshots of deployment history and API testing are maintained as project evidence.
+
 ## Project Purpose
 
-The purpose of this project is to create a centralized resource portal that makes internship information and learning materials easier to access and navigate.
+The purpose of this project is to demonstrate a cloud-hosted internship resource portal using frontend technologies, GitHub version control, Cloudflare Pages hosting, and serverless API functionality.
 
-## Note
+## Disclaimer
 
-This is a student-developed project. The internship guidelines and resource information are sample content for demonstration and should not be treated as official Veda Technology policies.
-
+This is a student-developed demonstration project. Internship guidelines and resource information are sample content and should not be treated as official Veda Technology policies.
 
 
