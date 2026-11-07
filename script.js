@@ -1,4 +1,3 @@
-
 /* ==========================================
    VEDA TECHNOLOGY
    INTERNSHIP RESOURCE PORTAL
@@ -24,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function initializePortal() {
     try {
+        // Load the main portal content from the existing JSON file.
         const response = await fetch("data/resources.json");
 
         if (!response.ok) {
@@ -31,6 +31,59 @@ async function initializePortal() {
         }
 
         portalData = await response.json();
+
+        // Make sure the resources collection is an array.
+        if (!Array.isArray(portalData.resources)) {
+            portalData.resources = [];
+        }
+
+        // Fetch additional resource information from the Cloudflare Pages API.
+        // If the API is unavailable, the existing JSON resources will still load.
+        try {
+            const apiResponse = await fetch("/api/resources");
+
+            if (!apiResponse.ok) {
+                throw new Error("Unable to fetch API resources.");
+            }
+
+            const apiData = await apiResponse.json();
+
+            if (apiData.success && Array.isArray(apiData.resources)) {
+                const existingTitles = new Set(
+                    portalData.resources
+                        .filter(resource => resource && resource.title)
+                        .map(resource => resource.title.trim().toLowerCase())
+                );
+
+                const newResources = apiData.resources.filter(resource => {
+                    if (!resource || !resource.title) {
+                        return false;
+                    }
+
+                    const title = resource.title.trim().toLowerCase();
+
+                    if (existingTitles.has(title)) {
+                        return false;
+                    }
+
+                    existingTitles.add(title);
+                    return true;
+                });
+
+                portalData.resources = [
+                    ...portalData.resources,
+                    ...newResources
+                ];
+
+                console.log("Cloudflare resources API connected successfully.");
+            }
+
+        } catch (apiError) {
+            console.warn(
+                "Cloudflare API unavailable. Using resources from the JSON file.",
+                apiError
+            );
+        }
 
         renderDomains();
         renderProjects();
@@ -181,17 +234,24 @@ function renderResources() {
             resource.category
         );
 
-        const link = createElement(
-            "a",
-            "card-link",
-            "Visit Resource →"
-        );
+        // API resources may not have a URL.
+        // Only show the link when a resource actually provides one.
+        card.append(title, description, category);
 
-        link.href = resource.url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
+        if (resource.url) {
+            const link = createElement(
+                "a",
+                "card-link",
+                "Visit Resource →"
+            );
 
-        card.append(title, description, category, link);
+            link.href = resource.url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+
+            card.appendChild(link);
+        }
+
         container.appendChild(card);
     });
 }
